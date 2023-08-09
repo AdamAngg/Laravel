@@ -8,8 +8,11 @@
 </head>
 <body>
    <article>
-    <h1><?= $post->title?></h1>
-    <p><?= $post->body?></p>
+    <h1>{{$post->title}}</h1>
+    <div>
+
+        {{strip_tags($post->body)}}
+    </div>
 
    
    </article>
