@@ -6,7 +6,7 @@
           <h1>
             <a href="posts/{{$post->slug}}"> {{$post->title}}</a>
           </h1><p>
-           {{$post->excerpt}}
+           {!!$post->excerpt!!}
           </p>
           <p><a href="category/{{$post->category->slug}}">{{$post->category->name}}</a></p>
         </article>
