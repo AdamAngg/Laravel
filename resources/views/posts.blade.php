@@ -8,7 +8,7 @@
           </h1><p>
            {!!$post->excerpt!!}
           </p>
-          <p><a href="category/{{$post->category->slug}}">{{$post->category->name}}</a></p>
+          <p>By <a href="author/{{$post->author->slug}}">{{$post->author->name}} </a> in <a href="category/{{$post->category->slug}}">{{$post->category->name}}</a></p>
         </article>
      @endforeach
 @endsection
