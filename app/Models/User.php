@@ -16,7 +16,12 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
-     */
+     */ 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     protected $fillable = [
         'name',
         'email',
