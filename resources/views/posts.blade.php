@@ -1,6 +1,5 @@
 <x-layout>
-
-  <x-post-header />
+  <x-post-header :categories="$categories" :currentCategory="isset($currentCategory) ? $currentCategory : 'Categories'" />
 
   <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
 
