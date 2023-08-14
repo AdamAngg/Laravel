@@ -23,10 +23,8 @@
                 </div>
             </header>
 
-            <div class="text-sm mt-4">
-                <a href="/posts/{{$post->slug}}">
-                    {{$post->title}}
-                </a>
+            <div class="text-sm mt-4 space-y-4">
+                <p>{!!$post->excerpt!!}</p>
             </div>
 
             <footer class="flex justify-between items-center mt-8">

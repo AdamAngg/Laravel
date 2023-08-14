@@ -19,14 +19,12 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'category_id'=> Category::factory(),
-            'user_id'=> User::factory(),
-            'slug'=> $this->faker->slug,
-            'title'=> $this->faker->sentence,
-            'excerpt'=> $this->faker->sentence,
-            'body'=> $this->faker->paragraph,
-            
-            
+            'category_id' => Category::factory(),
+            'user_id' => User::factory(),
+            'slug' => $this->faker->slug,
+            'title' => $this->faker->sentence,
+            'excerpt' => '<p>' .  implode('</p><p>', $this->faker->paragraphs(2)) . '</p>',
+            'body' => '<p>' .  implode('</p><p>', $this->faker->paragraphs(6)) . '</p>',
         ];
     }
 }
