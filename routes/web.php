@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('posts', ['posts' => Post::latest()->get(), "categories" => Category::all()]);
-});
+})->name('home');
 
 Route::get('posts/{post:slug}', function (Post $post) {
 
@@ -29,7 +29,7 @@ Route::get('posts/{post:slug}', function (Post $post) {
 Route::get('category/{category:slug}', function (Category $category) {
 
     return view('posts', ['posts' => $category->posts, 'currentCategory' => $category->name, "categories" => Category::all()]);
-});
+})->name('category');
 Route::get('author/{author:slug}', function (User $author) {
 
     return view('posts', ['posts' => $author->posts, "categories" => Category::all()]);
