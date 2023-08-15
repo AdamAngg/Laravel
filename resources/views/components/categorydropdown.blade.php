@@ -8,11 +8,15 @@
             </button>
         </x-slot>
 
-        <x-drop-down-item href="/" :statement="isset($currentCategory) && $currentCategory === 'Categories'">All</x-drop-down-item>
+        <x-drop-down-item 
+        href="/?={{http_build_query(request()->except('category', 'page'))}}" 
+        :statement="isset($currentCategory) && $currentCategory === 'Categories'">All</x-drop-down-item>
 
         @foreach($categories as $category)
 
-        <x-drop-down-item href="/?category={{$category->slug}}&{{http_build_query(request()->except('category'))}}" :statement="isset($currentCategory) && $currentCategory === $category->name">
+        <x-drop-down-item 
+            href="/?category={{$category->slug}}&{{http_build_query(request()->except('category', 'page'))}}"
+            :statement="isset($currentCategory) && $currentCategory === $category->name">
             {{$category->name}}
         </x-drop-down-item>
 
