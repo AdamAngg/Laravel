@@ -11,32 +11,21 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('posts', [
-            'posts' => Post::latest()->filter(request(['search', 'category']) ?? Post::latest())->get(),
-            'categories' => Category::all(),
-            'currentCategories' => Category::firstWhere('slug', request('category')),
+        return view('posts.index', [
+            'posts' => Post::latest()->filter(request(['search', 'category']))->get(),
+            'currentCategory' => Category::firstWhere('slug', request('category')),
         ]);
     }
 
-    public function showSinglePost(Post $post)
+    public function show(Post $post)
     {
-        return view('post', ['post' => $post]);
+        return view('posts.show', ['post' => $post]);
     }
-
-    // public function showSingleCategory(Category $category)
-    // {
-    //     return view('posts', [
-    //         'posts' => Post::latest()->filter(request(['search', 'category']))->get(),
-    //         'currentCategory' => $category->name,
-    //         'categories' => Category::all()
-    //     ]);
-    // }
 
     public function showSingleAuthor(User $author)
     {
-        return view('posts', [
+        return view('posts.showSingleAuthor', [
             'posts' => $author->posts,
-            "categories" => Category::all()
         ]);
     }
 }

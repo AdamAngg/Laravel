@@ -21,12 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
-Route::get('posts/{post:slug}', [PostController::class, 'showSinglePost']);
-
-// Route::get(
-//     'category/{category:slug}',
-//     [PostController::class, 'showSingleCategory']
-// )->name('category');
+Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 Route::get(
     'author/{author:slug}',
