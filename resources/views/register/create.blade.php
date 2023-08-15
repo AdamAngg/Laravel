@@ -16,9 +16,13 @@
                     type="text"
                     name="name"
                     id="name"
+                    value="{{old('name')}}"
                     required
                     >
                 </div>
+                @error('name')
+                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>   
+                @enderror
                 <div class="mb-6">
                     <label for="username" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                         username
@@ -29,9 +33,13 @@
                     type="text"
                     name="username"
                     id="username"
+                    value="{{old('username')}}"
                     required
                     >
                 </div>
+                @error('username')
+                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>   
+                @enderror
                 <div class="mb-6">
                     <label for="email" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                         email
@@ -42,10 +50,13 @@
                     type="email"
                     name="email"
                     id="email"
+                    value="{{old('email')}}"
                     required
                     >
                 </div>
-
+                @error('email')
+                <p class="text-red-500 text-xs mt-1">{{$message}}</p>   
+               @enderror
                 <div class="mb-6">
                     <label for="password" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                         Password
@@ -59,7 +70,9 @@
                     required
                     >
                 </div>
-
+                @error('password')
+                <p class="text-red-500 text-xs mt-1">{{$message}}</p>   
+               @enderror
                 ​<div class="mb-6"> <button type="" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" >submit</button> </div>
             </form>
         </main>
