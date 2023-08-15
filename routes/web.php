@@ -23,10 +23,10 @@ Route::get('/', [PostController::class, 'index'])->name('home');
 
 Route::get('posts/{post:slug}', [PostController::class, 'showSinglePost']);
 
-Route::get(
-    'category/{category:slug}',
-    [PostController::class, 'showSingleCategory']
-)->name('category');
+// Route::get(
+//     'category/{category:slug}',
+//     [PostController::class, 'showSingleCategory']
+// )->name('category');
 
 Route::get(
     'author/{author:slug}',

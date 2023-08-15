@@ -25,7 +25,7 @@
 
                 @foreach($categories as $category)
 
-                <x-drop-down-item href="/category/{{$category->slug}}" :statement="isset($currentCategory) && $currentCategory === $category->name">
+                <x-drop-down-item href="/?category={{$category->slug}}" :statement="isset($currentCategory) && $currentCategory === $category->name">
                     {{$category->name}}
                 </x-drop-down-item>
 
