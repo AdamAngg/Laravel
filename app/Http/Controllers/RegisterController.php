@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+
 
 class RegisterController extends Controller
 {
@@ -16,14 +16,12 @@ class RegisterController extends Controller
     {
         $attributes = request()->validate([
             'name' => ['required', 'max:255'],
-            'username' => ['required', 'max:255', 'min:3'],
+            'username' => ['required', 'max:255', 'min:3', 'alpha_num'],
             'email' => ['required', 'email', 'max:255'],
             'password' => ['required', 'min:7', 'max:255'],
         ]);
-        $attributes['slug'] = Str::slug($attributes['username']);
 
-
-        User::creat($attributes);
+        User::create($attributes);
 
         return redirect('/');
     }

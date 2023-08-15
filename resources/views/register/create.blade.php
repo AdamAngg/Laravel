@@ -2,7 +2,7 @@
     <section class="px-6 py-8">
         <main class="max-w-lg mx-auto">
             <h1 class="text-center font-bold uppercase text-xs text-gray-700">Register</h1>
-            <form action="POST" action="/register">
+            <form method="POST" action="/register">
                 @csrf
 
 
@@ -45,6 +45,7 @@
                     required
                     >
                 </div>
+
                 <div class="mb-6">
                     <label for="password" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                         Password
