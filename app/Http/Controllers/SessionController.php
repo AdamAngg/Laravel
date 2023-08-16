@@ -26,8 +26,7 @@ class SessionController extends Controller
             session()->regenerate();
             session()->flash('success', 'Welcome back!');
             return redirect('/');
-        } else {
-            return back()->withErrors(['password' => 'Wrong email or password']);
         }
+        return back()->withErrors(['password' => 'Wrong email or password']);
     }
 }
