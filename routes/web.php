@@ -30,4 +30,7 @@ Route::post('logout', [SessionController::class, 'destroy'])->middleware('auth')
 Route::post('sessions', [SessionController::class, 'store'])->middleware('guest');
 
 Route::get('login', [SessionController::class, 'create'])->middleware('guest');
+
+Route::post('posts/{post:slug}/comments')
 // alias do skrótów alias $skrót = "$komenda"
+// Na controllerze najlepiej używać nazw : /index, show, create, store, edit, update, destroy 
