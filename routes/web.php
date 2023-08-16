@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -31,6 +33,6 @@ Route::post('sessions', [SessionController::class, 'store'])->middleware('guest'
 
 Route::get('login', [SessionController::class, 'create'])->middleware('guest');
 
-Route::post('posts/{post:slug}/comments')
+Route::post('posts/{post:slug}/comments', [CommentController::class, 'store']);
 // alias do skrótów alias $skrót = "$komenda"
 // Na controllerze najlepiej używać nazw : /index, show, create, store, edit, update, destroy 
