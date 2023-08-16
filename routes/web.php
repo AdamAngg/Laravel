@@ -30,3 +30,4 @@ Route::post('logout', [SessionController::class, 'destroy'])->middleware('auth')
 Route::post('sessions', [SessionController::class, 'store'])->middleware('guest');
 
 Route::get('login', [SessionController::class, 'create'])->middleware('guest');
+// alias do skrótów alias $skrót = "$komenda"

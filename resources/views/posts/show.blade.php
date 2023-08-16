@@ -52,7 +52,13 @@
                     </div>
 
                     <section class="col-span-8 col-start-5 mt-10 space-y-6">
-                        <x-post-comment />
+
+                        <form action="" method="post" class="border border-gray-200 p-6 rounded-xl">
+                            <header></header>
+                        </form>
+                        @foreach ($post->comments as $comment)
+                            <x-post-comment :comment="$comment" />
+                        @endforeach
                     </section>
             </article>
         </main>

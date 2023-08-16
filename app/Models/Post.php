@@ -10,7 +10,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $with = ['category', 'author'];
+    protected $with = ['category', 'author', 'comments'];
 
     protected $guarded = [];
 
@@ -18,10 +18,17 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function author()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? false, fn ($query, $search) =>
