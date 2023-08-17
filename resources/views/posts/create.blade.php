@@ -1,7 +1,7 @@
 <x-layout>
     <section class="px-6 py-8">
 
-        <h1 class="text-center font-bold uppercase text-xs text-gray-700">Log In</h1>
+        <h1 class="text-center font-bold uppercase text-xs text-gray-700">Post something</h1>
         <x-panel class="max-w-sm mx-auto">
 
             <form method="POST" action="/admin/posts">

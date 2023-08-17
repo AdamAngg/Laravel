@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Support\Str;
+
 
 
 class PostController extends Controller
@@ -24,5 +26,16 @@ class PostController extends Controller
     }
     public function store()
     {
+        $attributes = request()->validate([
+            'title' => ['required'],
+            'excerpt' => ['required'],
+            'body' => ['required'],
+            'category_id' => ['required', 'exists:categories,id']
+        ]);
+        $attributes['slug'] = Str::slug($attributes['title'], '-');
+
+        auth()->user()->posts()->create($attributes);
+
+        return redirect('/');
     }
 }
