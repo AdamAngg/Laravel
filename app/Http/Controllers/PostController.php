@@ -26,6 +26,7 @@ class PostController extends Controller
     }
     public function store()
     {
+        $path = request()->file('file')->store('files');
         $attributes = request()->validate([
             'title' => ['required'],
             'excerpt' => ['required'],

@@ -4,7 +4,7 @@
         <h1 class="text-center font-bold uppercase text-xs text-gray-700">Post something</h1>
         <x-panel class="max-w-sm mx-auto">
 
-            <form method="POST" action="/admin/posts">
+            <form method="POST" action="/admin/posts" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-6">
@@ -30,6 +30,21 @@
 
                     <input class="border border-gray-400 p-2 w-full rounded" type="text" name="excerpt"
                         id="excerpt" value="{{ old('excerpt') }}" required>
+
+                </div>
+
+                @error('excerpt')
+                    <p class="text-red-500 text-xs mb-2">{{ $message }}</p>
+                @enderror
+
+                <div class="mb-6">
+
+                    <label for="file" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                        file
+                    </label>
+
+                    <input class="border border-gray-400 p-2 w-full rounded" type="file" name="file"
+                        id="file" value="" required>
 
                 </div>
 
