@@ -7,7 +7,8 @@
         <aside class="w-48">
             <h4>Links</h4>
             <ul>
-                <li><a href="/admin/posts/create"></a></li>
+                <li><a href="/admin/posts">All posts</a></li>
+                <li><a href="/admin/posts/create">New post</a></li>
             </ul>
         </aside>
         <main class="flex-1">
