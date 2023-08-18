@@ -22,11 +22,11 @@
                         <x-slot name="trigger">
                             <button class="text-xs font-bold uppercase">Welcome {{ auth()->user()->name }}</button>
                         </x-slot>
-                        <x-drop-down-item href="/admin/dashboard" :active="request()->is('/admin/posts/create')">Dashboard</x-drop-down-item>
+                        <x-drop-down-item href="/admin/posts" :active="request()->is('/admin/posts/create')">Dashboard</x-drop-down-item>
                         <x-drop-down-item href="/admin/posts/create" :active="request()->is('/admin/posts/create')">New post</x-drop-down-item>
                         <x-drop-down-item x-data="{}"
                             @click.prevent="document.querySelector('#logout-form').submit()"
-                            href="/">Logout</x-drop-down-item>
+                            href="#">Logout</x-drop-down-item>
 
                         <form id="logout-form" action="/logout" method="post" class="hidden">
                             @csrf
