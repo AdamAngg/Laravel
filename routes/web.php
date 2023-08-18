@@ -4,7 +4,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
-
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 
@@ -39,6 +39,8 @@ Route::post('posts/{post:slug}/comments', [CommentController::class, 'store']);
 Route::get('admin/posts/create', [PostController::class, 'create'])->middleware('admin');
 
 Route::post('admin/posts', [PostController::class, 'store'])->middleware('admin');
+
+
 
 // alias do skrótów alias $skrót = "$komenda"
 // Na controllerze najlepiej używać nazw : /index, show, create, store, edit, update, destroy 

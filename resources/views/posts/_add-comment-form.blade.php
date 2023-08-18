@@ -1,24 +1,16 @@
 @auth
     <x-panel>
-
         <form action="{{ $post->slug }}/comments" method="post" class="">
-
             @csrf
             <header class="flex">
                 <img src="https://i.pravatar.cc/60?u={{ auth()->id() }}" alt="" class="rounded-xl">
                 <h2 class="ml-4">Want to paricpate?</h2>
             </header>
 
-            <div class="mt-6">
-                <textarea placeholder="Quick fill comment section now" name="body" id=""
-                    class="w-full text-sm focus:outline focus:ring" cols="30" rows="5" required></textarea>
-                @error('body')
-                    <span class="text-xs text-red-500">{{ $message }}</span>
-                @enderror
+            <x-form.textarea name="body" />
 
-            </div>
             <div class="flex justify-end mt-10 border-t border-gray-200 pt-6">
-                <x-submit-button>Post</x-submit-button>
+                <x-form.submit-button>Post</x-form.submit-button>
             </div>
         </form>
     </x-panel>

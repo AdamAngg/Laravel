@@ -26,14 +26,15 @@ class PostController extends Controller
     }
     public function store()
     {
-        $path = request()->file('file')->store('files');
         $attributes = request()->validate([
             'title' => ['required'],
+            'files' => ['required', 'image'],
             'excerpt' => ['required'],
             'body' => ['required'],
             'category_id' => ['required', 'exists:categories,id']
         ]);
         $attributes['slug'] = Str::slug($attributes['title'], '-');
+        $attributes['files'] = request()->file('files')->store('files');
 
         auth()->user()->posts()->create($attributes);
 
