@@ -17,13 +17,21 @@
 
             <div class="mt-8 md:mt-0 flex items-center">
                 @auth
-                    <span class="text-xs font-bold uppercase">Welcome {{ auth()->user()->name }}</span>
-                    <form action="/logout" method="post" class="text-xs font-semibold test-blue-500 ml-6">
-                        @csrf
-                        <div>
-                            <button>Logout</button>
-                        </div>
-                    </form>
+
+                    <x-drop-down>
+                        <x-slot name="trigger">
+                            <button class="text-xs font-bold uppercase">Welcome {{ auth()->user()->name }}</button>
+                        </x-slot>
+                        <x-drop-down-item href="/admin/dashboard" :active="request()->is('/admin/posts/create')">Dashboard</x-drop-down-item>
+                        <x-drop-down-item href="/admin/posts/create" :active="request()->is('/admin/posts/create')">New post</x-drop-down-item>
+                        <x-drop-down-item x-data="{}"
+                            @click.prevent="document.querySelector('#logout-form').submit()"
+                            href="/">Logout</x-drop-down-item>
+
+                        <form id="logout-form" action="/logout" method="post" class="hidden">
+                            @csrf
+                        </form>
+                    </x-drop-down>
                 @else
                     <a href="/register" class="text-xs font-bold uppercase">Register</a>
                     <a href="/login" class="text-xs font-bold uppercase">Login</a>
@@ -35,6 +43,7 @@
                 </a>
             </div>
         </nav>
+
         {{ $slot }}
 
         <footer id="newsletter"
